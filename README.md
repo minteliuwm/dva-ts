@@ -17,7 +17,7 @@ import H from 'history';
 
 const { ConnectedRouter } = routerRedux;
 
-function RouterConfig({ history }: { history: H.History }) {
+const RouterConfig = ({ history }: { history: H.History }) => {
 	return (
 		<ConnectedRouter history={history}>
 			<Route path="/" component={App} />

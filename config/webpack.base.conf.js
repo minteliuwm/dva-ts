@@ -1,7 +1,6 @@
 'use strict';
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const tsImportPluginFactory = require('ts-import-plugin');
 
 module.exports = {
 	entry: {
@@ -17,21 +16,8 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.tsx?$/,
-			loaders: 'ts-loader',
-			exclude: /node_modules/,
-			options: {
-				transpileOnly: true,
-				getCustomTransformers: () => ({
-					before: [tsImportPluginFactory({
-						libraryDirectory: 'es',
-						libraryName: 'antd',
-						style: 'css',
-					})]
-				}),
-				compilerOptions: {
-					module: 'es2015'
-				}
-			}
+			loaders: ['babel-loader', 'ts-loader'],
+			exclude: /node_modules/
 		}, {
 			test: /\.js|jsx$/,
 			exclude: /(node_modules|bower_components)/,
