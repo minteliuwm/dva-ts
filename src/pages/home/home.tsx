@@ -3,7 +3,7 @@ import { Button } from 'antd';
 
 const Home = () => {
 	return (
-		<div className='home'>
+		<div className="home">
 			<Button type="primary">Button</Button>
 		</div>
 	);
